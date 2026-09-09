@@ -16,7 +16,7 @@ FROM sales
 GROUP BY country
 ORDER BY records_count DESC;
 
--- counting be whether the sale is domestic
+-- whether the sale is domestic or international
 SELECT 
     CASE 
         WHEN country = 'United Kingdom' THEN 'domestic'
@@ -28,20 +28,10 @@ SELECT
 FROM sales
 GROUP BY type;
 
-SELECT 
-    LENGTH(invoice) AS len,
-    COUNT(*) AS records_count
-FROM sales
-GROUP BY len;
-
-SELECT invoice
-FROM sales
-WHERE LENGTH(invoice) = 7
-LIMIT 1;
-
+-- about 2% of invoices are cancellations
 SELECT
     CASE
-        WHEN stock_code ~ '^(c|C)' THEN 'cancelled'
+        WHEN invoice ~ 'C' THEN 'cancelled'
         ELSE 'success'
     END 
         AS status,
