@@ -3,10 +3,11 @@ DROP TABLE IF EXISTS sales_clean;
 CREATE TABLE sales_clean (
     invoice_id TEXT,
     is_cancelled BOOLEAN,
-    date TIMESTAMP,
+    invoice_date TIMESTAMP,
     customer_id TEXT,
     country TEXT,
     stock_code TEXT,
+    description TEXT,
     price FLOAT,
     quantity INT
 );
@@ -14,20 +15,22 @@ CREATE TABLE sales_clean (
 INSERT INTO sales_clean (
     invoice_id,
     is_cancelled,
-    date,
+    invoice_date,
     customer_id,
     country,
     stock_code,
+    description,
     price,
     quantity
 )
 SELECT
     RIGHT(invoice, 6),
     LEFT(invoice, 1) = 'C',
-    date,
+    invoice_date,
     customer_id,
     country,
     UPPER(stock_code),
+    description,
     price,
     quantity
 FROM sales

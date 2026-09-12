@@ -5,7 +5,7 @@ CREATE TABLE sales (
     stock_code TEXT,
     description TEXT,
     quantity INT,
-    date TIMESTAMP,
+    invoice_date TIMESTAMP,
     price FLOAT,
     customer_id TEXT,
     country TEXT,
@@ -33,7 +33,7 @@ INSERT INTO sales (
     stock_code,
     description,
     quantity,
-    date,
+    invoice_date,
     price,
     customer_id,
     country
