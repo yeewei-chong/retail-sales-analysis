@@ -13,6 +13,7 @@ CREATE TABLE products (
     description TEXT
 );
 
+
 CREATE TABLE invoices (
     invoice_id TEXT,
     is_cancelled BOOLEAN,
@@ -24,7 +25,7 @@ CREATE TABLE invoices (
 );
 
 
-
+-- using latest country for each customer to prevent duplicates
 INSERT INTO customers(customer_id, latest_country)
 SELECT customer_id, country FROM (
     
@@ -39,6 +40,10 @@ SELECT customer_id, country FROM (
     
 ) WHERE desc_rank = 1;
 
+
+
+-- using latest description for each product
+-- adding the base stock code for each item type
 INSERT INTO products(stock_code, base_stock_code, description)
 SELECT stock_code, LEFT(stock_code, 5), description FROM (
     
@@ -52,6 +57,8 @@ SELECT stock_code, LEFT(stock_code, 5), description FROM (
     ) 
     
 ) WHERE desc_rank = 1;
+
+
 
 INSERT INTO invoices (
     invoice_id,
