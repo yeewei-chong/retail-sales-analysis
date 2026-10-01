@@ -7,7 +7,7 @@
 - Ireland still provides the highest value per customer, but experiences a decrease from the previous year.
 - Australia shows the biggest improvement in sales performance, providing 3 times the revenue, 2 times the average order value, and 6 times the average customer value compared to the previous year.
 - Months near the start of UK summer, UK autumn, and the holiday season experience and increase in sales, and a decrease otherwise.
-- The most popular product isthe cream hanging heart T-light holder, with 1,777 units sold, followed closely by by the 3-tier regency cakestand at1,566 units sold.
+- The most popular product isthe cream hanging heart T-light holder, with 1,777 units sold, followed closely by the 3-tier regency cakestand at1,566 units sold.
 
 This sales performance dashboard uses the Online Retail II dataset via UCI. The data was validated and loaded into customer, product, and invoice tables respectively in a PostgreSQL database, connected via foreign keys.
 
