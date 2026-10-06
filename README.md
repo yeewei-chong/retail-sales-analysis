@@ -1,21 +1,21 @@
-# Online Retail Sales Performance Analysis
+# British Online Retail Quarterly Sales Performance Report
 
 
-### **Key Insights**
+### **Dashboard Snapshot**
 
-- Gross revenue stayed roughly the same although there is a significant decrease in sales.
-- Ireland still provides the highest value per customer, but experiences a decrease from the previous year.
-- Australia shows the biggest improvement in sales performance, providing 3 times the revenue, 2 times the average order value, and 6 times the average customer value compared to the previous year.
-- Months near the start of UK summer, UK autumn, and the holiday season experience and increase in sales, and a decrease otherwise.
-- The most popular product isthe cream hanging heart T-light holder, with 1,777 units sold, followed closely by by the 3-tier regency cakestand at1,566 units sold.
+![alt text](images/dashboard_new.png)
 
-This sales performance dashboard uses the Online Retail II dataset via UCI. The data was validated and loaded into customer, product, and invoice tables respectively in a PostgreSQL database, connected via foreign keys.
+### **Key Insights for Q4 2011**
+- Gross revenue, total orders, total units sold, and total customers all experienced a significant increase from last quarter, but a slight decrease from last year. For instance, gross revenue increased by 22% from last year, but decreased by 2.8% from last year. Hence, the increase from last quarter might just be a seasonal trend.
+- The average order value, on the contrary, decreased slightly (-0.8%) from last quarter, but increased significantly from last year (+10.82%).
+- The average customer value increased slightly compared to both last quarter (+2.8%) and last year (+1.1%).
+- The decrease in sales compared to last year despite the increase in both the value per order and the value per customer indicates that the business strategy for next quarter is to  either acquaring new customers, or incentivise existing customers to use the business more frequently, ideally both.
+- Since most of the existing customer base is domestic (91%), expanding the international customer base can improve performance. Ireland and the Netherlands, both neighbours of the UK ranks the top in average customer value. Therefore, not only that the cost of customer acquisition will be lower due to proximity compared to other international countries, the net outcome will be more worth it as customers from these countries are willing to use the business more.
 
-KPIs such as average order value and average customer value, as well as year-on-year change in revenue, were calculated dynamically via Power BI DAX. Since this dataset only covers two full years of data (2010 \& 2011), therefore I framed this as an annual sales report for the year 2011, comparing against 2010. Red in the visuals indicates a decrease from 2010, and green indicates an increase.
 
-Clicking on the charts allows users to filter based on month, country, or product. For example, selecting Australia gives the KPIs specific to Australian customers, as shown below.
+### **Project Overview**
+This project uses data from the Online Retail II datasets from the UC Irvine Machine Learning Repository: https://archive.ics.uci.edu/dataset/502/online+retail+ii.
 
-![alt text](images/sales_dashboard.png)
+The data is validated (e.g. removing cancelled or unapproved transactions) and transformed (e.g. selecting the latest description of products and the latest countries of customers using self-joins) before getting loaded into a PostgreSQL database. Then, the database is connected to Power BI to further calculate measures.
 
-![alt text](images/sales_dashboard_aus.png)
-
+Using DAX, KPIs such as gross revenue and total orders where calculated. Quarter-on-quarter and year-on-year changes were also calulated and formatted conditionally using the DATEADD() function. Slicers were added so that the dashboard can show results from previous quarters as well.
