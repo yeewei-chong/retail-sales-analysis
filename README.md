@@ -18,4 +18,4 @@ This project uses data from the Online Retail II datasets from the UC Irvine Mac
 
 The data is validated (e.g. removing cancelled or unapproved transactions) and transformed (e.g. selecting the latest description of products and the latest countries of customers using self-joins) before getting loaded into a PostgreSQL database. Then, the database is connected to Power BI to further calculate measures.
 
-Using DAX, KPIs such as gross revenue and total orders where calculated. Quarter-on-quarter and year-on-year changes were also calulated and formatted conditionally using the DATEADD() function. Slicers were added so that the dashboard can show results from previous quarters as well.
+Using DAX, KPIs such as gross revenue and total orders where calculated. Quarter-on-quarter and year-on-year changes were also calculated and formatted conditionally using the DATEADD() function. Slicers were added so that the dashboard can show results from previous quarters as well.
